@@ -1,6 +1,10 @@
 # Sokoban-gym
 Solution for Sokoban using RL
 
+## Installation
+The Environment: https://github.com/mpSchrader/gym-sokoban
+Our code is based on Keras on TensorFlow. We also have torch-based version, but our best results achieved using Keras-based code.
+
 ### Ex1
 See at notebooks/Ex1_final.ipynb
 Agent will converge after around 120 episodes
