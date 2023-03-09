@@ -27,6 +27,7 @@ For Inference our best model (solve 96/100) run:
 ```
 Python3 Ex2.py --inference --load_model Ex2_weights.h5
 ```
+Videos for all 100 tests are stored in test_videos
 
 ### Ex3
 See at notebooks/Ex3_final.ipynb
