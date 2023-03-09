@@ -165,6 +165,7 @@ class SOK_Agent:
         self.success_before_train = sok_args.success_before_train
         self.test_rate = sok_args.test_rate
         self.max_steps = sok_args.max_steps
+        self.inference = agent_args.inference
 
         self.action_rotation_map = {
             0: 2,
@@ -279,6 +280,7 @@ class SOK_Agent:
         solved_in_steps = defaultdict(int)
         t_solved = []
         t_unsolved = []
+        images = []
 
         for t in range(100):
             random.seed(t)
@@ -289,6 +291,7 @@ class SOK_Agent:
             state = sok.get_image('rgb_array')
             done = False
             while not done:
+                images.append(sok.get_image('rgb_array'))
                 steps += 1
                 action = self.act(process_frame(state), stochastic)
                 if action < 4:
@@ -303,6 +306,14 @@ class SOK_Agent:
                 t_solved.append(t)
             else:
                 t_unsolved.append(t)
+                
+            if self.inference:
+                height, width, layers = images[0].shape
+                size = (width, height)
+                out = cv2.VideoWriter(f'test_videos/test_{t}.avi', cv2.VideoWriter_fourcc(*'DIVX'), 2, size)
+                for i in range(len(images)):
+                    out.write(images[i])
+                out.release()
 
         self.epsilon = current_epsilon
         print(f"Episode {e + 1} Epsilon {self.epsilon} Learning Rate {np.round(self.model.optimizer.lr.numpy(), 6)} Solved: {num_solved}")
@@ -349,8 +360,6 @@ def inner_main(argv):
     record = 0
     num_success = 0
     solved_tests = []
-    a = torch.ones(100000).to('cuda')
-    b = torch.ones(100000).to('cuda')
 
     agent = SOK_Agent(argv)
     max_episodes = agent.max_episodes
@@ -372,11 +381,8 @@ def inner_main(argv):
         if e % agent.test_rate == 0:
             num_solved, record = agent.test_agent(e, record, stochastic=False)
             solved_tests.append(num_solved)
-
-        if e % 1000 == 0:
-            print("I'm Here")
-            c = torch.mul(a, b)
-            print(c.device)
+            if agent.inference:
+                exit(0)
 
         for step in range(sok.max_steps):
             action = agent.act(state)
