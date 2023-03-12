@@ -25,10 +25,15 @@ Please find the entire list in the python file itself.
 
 For Inference our best model (solve 96/100) run:
 ```
-Python3 Ex2.py --inference --load_model Ex2_weights.h5
+Python3 Ex2.py --inference --load_model models/Ex2_96.h5
 ```
-Videos for all 100 tests are stored in test_videos
+Videos for all 100 tests are stored in test_videos/Ex2
 
 ### Ex3
 See at notebooks/Ex3_final.ipynb
-Our best agent reaches XXX
+
+For Inference our best model (solve 73/100) run:
+```
+Python3 Ex2.py --inference --load_model models/Ex3_73.h5
+```
+Videos for all 100 tests are stored in test_videos/Ex3
