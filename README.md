@@ -7,12 +7,12 @@ Our code is based on Keras on TensorFlow. We also have torch-based version, but 
 
 All our notebooks are stored under [Notebook](https://github.com/AvrahamRaviv/Sokoban-gym/tree/main/Notebooks) folder.
 ### Ex1
-See at Notebooks/Ex1_final.ipynb.
+See at [Ex1 Notebook](https://colab.research.google.com/drive/1Y48Et7qdeQaSklUqkMO7oAHBdDZQGX1A?usp=sharing)
 
 Agent will converge after around 120 episodes.
 
 ### Ex2
-See at [Ex3 Notebook](https://colab.research.google.com/drive/1Y48Et7qdeQaSklUqkMO7oAHBdDZQGX1A?usp=sharing)
+See at [Ex2 Notebook](https://colab.research.google.com/drive/1lqsRouX3752jFCJv9M5hb25z7row8kEw?usp=sharing) (at the first part of the notebook).
 
 For train agent from scratch one can use Ex2.py, as follows:
 ```
@@ -32,7 +32,7 @@ Python3 Ex2.py --inference --load_model models/Q2_end.h5
 Videos for all 100 tests are stored in test_videos/Ex2.
 
 ### Ex3
-See at [Ex3 Notebook](https://colab.research.google.com/drive/1Y48Et7qdeQaSklUqkMO7oAHBdDZQGX1A?usp=sharing)
+See at [Ex3 Notebook](https://colab.research.google.com/drive/1lqsRouX3752jFCJv9M5hb25z7row8kEw?usp=sharing) (at the second part of the notebook).
 
 For Inference our best model (solve 73/100) run:
 ```
