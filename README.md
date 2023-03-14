@@ -7,7 +7,7 @@ Our code is based on Keras on TensorFlow. We also have torch-based version, but 
 
 All our notebooks are stored under [Notebook](https://github.com/AvrahamRaviv/Sokoban-gym/tree/main/Notebooks) folder.
 ### Ex1
-See at [Ex1 Notebook](https://colab.research.google.com/drive/1Y48Et7qdeQaSklUqkMO7oAHBdDZQGX1A?usp=sharing)
+See at [Ex1 Notebook](https://colab.research.google.com/drive/1eIVgC8H8Ftmv0AliiLAv0U_GQgRugi28)
 
 Agent will converge after around 120 episodes.
 
@@ -36,6 +36,6 @@ See at [Ex3 Notebook](https://colab.research.google.com/drive/1lqsRouX3752jFCJv9
 
 For Inference our best model (solve 73/100) run:
 ```
-Python3 Ex2.py --inference --load_model models/Q3_end.h5
+Python3 Ex3.py --inference --load_model models/Q3_end.h5
 ```
 Videos for all 100 tests are stored in test_videos/Ex3.
